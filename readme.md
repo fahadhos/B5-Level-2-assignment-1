@@ -1,4 +1,21 @@
 
+# Interfaces vs Types in TypeScript
+
+When working with TypeScript, both `interface` and `type` allow you to define the shape of an object.  
+At first glance, they might seem very similar — and in many cases, you can use either one.  
+But there are some differences that are good to know.
+
+## Similarities
+
+Both `interface` and `type` can describe the structure of an object.
+
+Example with `interface`:
+
+```ts
+interface Person {
+  name: string;
+  age: number;
+}
 
 
 
