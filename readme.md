@@ -11,12 +11,55 @@ Both `interface` and `type` can describe the structure of an object.
 
 Example with `interface`:
 
-```ts
+
 interface Person {
   name: string;
   age: number;
 }
 
+
+Example with `type`:
+
+
+type Person = {
+  name: string;
+  age: number;
+}
+
+
+Both do the same thing — they define the shape of an object. However, interface is more commonly used for defining class structures.
+
+## Interfaces can be merged and extended multiple times:
+ 
+interface Animal {
+  name: string;
+}
+
+interface Animal {
+  age: number;
+}
+
+// Now Animal has both 'name' and 'age'
+const pet: Animal = { name: "Dog", age: 5 };
+Types cannot be merged directly but can be extended using intersections:
+
+ 
+type Animal = {
+  name: string;
+};
+
+type AnimalWithAge = Animal & {
+  age: number;
+};
+
+## Types offer more flexibility. They can define unions, tuples, and primitive types:
+
+ 
+type ID = string | number;  // Union type
+type Point = [number, number];  // Tuple type
+Interfaces are limited to defining object structures.
+
+ 
 
 
  
@@ -35,7 +78,7 @@ When you use `keyof` with a type, it produces a union of all the keys (property 
 
 Example:
 
-```ts
+ 
 type Person = {
   name: string;
   age: number;
@@ -43,3 +86,14 @@ type Person = {
 
 type PersonKeys = keyof Person;
 // PersonKeys is "name" | "age"
+
+
+
+
+
+
+
+
+
+
+ 
